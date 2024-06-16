@@ -56,7 +56,7 @@ export default function Home() {
         <input 
         name="password" value={data.password} onChange={inputValue} 
         className="bg-[#ffffff8d] rounded-[30px] p-3" 
-        type="text"  placeholder="Contraseña" required/>
+        type="password"  placeholder="Contraseña" required/>
 
         <button type="submit"
          className="bg-[#394b7d] p-3 rounded-[30px] text-white text-xl" >

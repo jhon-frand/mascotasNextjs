@@ -1,0 +1,868 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "Documentación API proyecto Mascotas NextJs",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/mascotas": {
+            "get": {
+                "summary": "Listar mascotas",
+                "responses": {
+                    "200": {
+                        "description": "Lista de las mascotas",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Mascota"
+                            }
+                        },
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 1,
+                                    "name": "Bobby",
+                                    "race": "Labrador",
+                                    "category": "Perro",
+                                    "photo": "url_to_photo",
+                                    "gender": "Macho"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Kitty",
+                                    "race": "Siamese",
+                                    "category": "Gato",
+                                    "photo": "url_to_photo",
+                                    "gender": "Hembra"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Registrar mascota",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Bobby",
+                                "race": 1,
+                                "category": 1,
+                                "photo": "url_to_photo",
+                                "gender": 2
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mascota registrada",
+                        "schema": {
+                            "$ref": "#/definitions/Mascota"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "value": {
+                                    "id": 1,
+                                    "name": "Bobby",
+                                    "race": 1,
+                                    "category": 1,
+                                    "photo": "url_to_photo",
+                                    "gender": 2
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mascotas/{id}": {
+            "get": {
+                "summary": "Buscar mascota por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalles de la mascota",
+                        "schema": {
+                            "$ref": "#/definitions/Mascota"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Bobby",
+                                "race": "Labrador",
+                                "category": "Perro",
+                                "photo": "url_to_photo",
+                                "gender": "Macho"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar mascota",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Bobby Update",
+                                "race": 1,
+                                "category": 1,
+                                "photo": "url_to_photo",
+                                "gender": 2
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mascota actualizada",
+                        "schema": {
+                            "$ref": "#/definitions/Mascota"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Bobby Update",
+                                "race": 1,
+                                "category": 1,
+                                "photo": "url_to_photo",
+                                "gender": 2
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar mascota",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mascota eliminada",
+                        "schema": {
+                            "$ref": "#/definitions/Mascota"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Bobby update",
+                                "race": 1,
+                                "category": 1,
+                                "photo": "url_to_photo",
+                                "gender": 2
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "summary": "Listar Usuarios",
+                "responses": {
+                    "200": {
+                        "description": "Lista de los usuarios",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/User"
+                            }
+                        },
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 1,
+                                    "name": "Frand",
+                                    "email": "frand@gmail.com",
+                                    "password": "password"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Santiago",
+                                    "email": "santiago@gmail.com",
+                                    "password": "password2"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Registrar Usuario",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Frand",
+                                "email": "frand@gmail.com",
+                                "password": "password"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usuario registrado",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "value": {
+                                    "id": 1,
+                                    "name": "Frand",
+                                    "email": "frand@gmail.com",
+                                    "password": "password"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "summary": "Buscar Usuario por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalles del usuario",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Frand",
+                                "email": "frand@gmail.com",
+                                "password": "password"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar usuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Frand Update",
+                                "email": "frand@gmail.com",
+                                "password": "password"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "usuario actualizado",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Frand Update",
+                                "email": "frand@gmail.com",
+                                "password": "password"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar usuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "usuario eliminado",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Frand Update",
+                                "email": "frand@gmail.com",
+                                "password": "password"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categorias": {
+            "get": {
+                "summary": "Listar Categorías",
+                "responses": {
+                    "200": {
+                        "description": "Lista de las Categorías",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Category"
+                            }
+                        },
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 1,
+                                    "name": "Perro"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Gato"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Registrar Categoría",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Perro"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoría registrado",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "value": {
+                                    "id": 1,
+                                    "name": "Perro"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categorias/{id}": {
+            "get": {
+                "summary": "Buscar categoría por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalles de la categoría",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Perro"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar categoría",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Perro Update"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoría actualizada",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Perro Update"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar categoría",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Categoría eliminada",
+                        "schema": {
+                            "$ref": "#/definitions/Category"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Perro Update"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/razas": {
+            "get": {
+                "summary": "Listar Razas",
+                "responses": {
+                    "200": {
+                        "description": "Lista de las razas",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Race"
+                            }
+                        },
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 1,
+                                    "name": "Bulldog"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Siamese"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Registrar Raza",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Bulldog"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Raza registrada",
+                        "schema": {
+                            "$ref": "#/definitions/Race"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "value": {
+                                    "id": 1,
+                                    "name": "Bulldog"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/razas/{id}": {
+            "get": {
+                "summary": "Buscar Raza por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalles de la raza",
+                        "schema": {
+                            "$ref": "#/definitions/Race"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Bulldog"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar Raza",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Rootwailer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Raza actualizada",
+                        "schema": {
+                            "$ref": "#/definitions/Race"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Rootwailer"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar Raza",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Raza eliminada",
+                        "schema": {
+                            "$ref": "#/definitions/Race"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Rootwailer"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/generos": {
+            "get": {
+                "summary": "Listar Géneros",
+                "responses": {
+                    "200": {
+                        "description": "Lista de los géneros",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Gender"
+                            }
+                        },
+                        "examples": {
+                            "application/json": [
+                                {
+                                    "id": 1,
+                                    "name": "Macho"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Hembra"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Registrar género",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Macho"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Género registrado",
+                        "schema": {
+                            "$ref": "#/definitions/Gender"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "value": {
+                                    "id": 1,
+                                    "name": "Macho"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/generos/{id}": {
+            "get": {
+                "summary": "Buscar género por ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalles del género",
+                        "schema": {
+                            "$ref": "#/definitions/Gender"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Macho"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Actualizar género",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "name": "Macho update"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "género actualizado",
+                        "schema": {
+                            "$ref": "#/definitions/Gender"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Macho update"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Eliminar género",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "género eliminado",
+                        "schema": {
+                            "$ref": "#/definitions/Gender"
+                        },
+                        "examples": {
+                            "application/json": {
+                                "id": 1,
+                                "name": "Macho"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Mascota": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "race": {
+                    "type": "integer"
+                },
+                "category": {
+                    "type": "integer"
+                },
+                "photo": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Gender": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Race": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Category": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

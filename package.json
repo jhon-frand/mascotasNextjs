@@ -22,7 +22,9 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "swagger-ui-dist": "^5.17.14",
+    "swagger-ui-react": "^5.17.14"
   },
   "devDependencies": {
     "@types/node": "^20",

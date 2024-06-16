@@ -137,9 +137,9 @@ function page() {
             <input name='name' onChange={inputValue}
               className='p-3 w-full bg-[#ffffffa5] outline-none placeholder:text-[#252f7c] rounded-[30px]'
               type="text" placeholder='Nombre' />
-
+            <div className="p-2 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]">
             <select name='race_id' onChange={inputValue}
-              className='p-3 w-full bg-[#ffffffa5] outline-none   rounded-[30px]'>
+              className='w-full bg-transparent p-1 outline-none '>
               <option value="">Seleccione Raza...</option>
               {
                 razas.map(raza => (
@@ -149,8 +149,11 @@ function page() {
                 ))
               }
             </select>
-            <select name='category_id' onChange={inputValue}
-              className='p-3 w-full bg-[#ffffffa5] outline-none  rounded-[30px]'>
+            </div>
+            
+           <div className='p-2 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]'>
+           <select name='category_id' onChange={inputValue}
+              className='w-full bg-transparent p-1 outline-none'>
               <option value="">Seleccione Categoría...</option>
               {
                 category.map(category => (
@@ -160,6 +163,7 @@ function page() {
                 ))
               }
             </select>
+           </div>
             <div className="p-3 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]">
               <input
                 name="photo"
@@ -179,8 +183,9 @@ function page() {
                 />
             </div>
 
+            <div className='p-2 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]'>
             <select name='gender_id' onChange={inputValue}
-              className='p-3 w-full bg-[#ffffffa5] outline-none  rounded-[30px]'>
+              className='w-full bg-transparent p-1 outline-none'>
               <option value="">Seleccione Género...</option>
               {
                 genders.map(gender => (
@@ -190,6 +195,7 @@ function page() {
                 ))
               }
             </select>
+            </div>
             <div>
               <button type='submit'>
                 <Image src={btnSave}

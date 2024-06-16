@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'custom-image': "url('/images/bg-login.svg')",
-        'back-image': "url('/images/bg.svg')",
+        'custom-image': "url('/bg-login.svg')",
+        'back-image': "url('/bg.svg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

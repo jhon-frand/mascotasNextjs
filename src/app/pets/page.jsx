@@ -39,12 +39,6 @@ function page() {
    <div className='flex justify-center items-center'>
      <div className='bg-back-image bg-cover bg-center md:w-1/4 w-full h-screen flex  flex-col p-3 gap-3'>
        <div className='flex h-12 w-full justify-center items-center gap-4 ' >
-        <Link href="/">
-        <Image
-        src={btnBack}
-        alt='btn-back'
-        />
-        </Link>
        <h1 className='text-white text-center w-full'>Administrar mascotas</h1>
            
            <Close/>

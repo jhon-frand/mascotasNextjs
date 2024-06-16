@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import btnUpdate from "../../img/btn-update.svg"
 import btnBack from "../../img/btn-back.svg"
+import iconCamera from "../../img/icon-camera.svg"
 import Image from 'next/image'
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
@@ -158,8 +159,9 @@ function page() {
         <form className='flex flex-col items-center gap-3' onSubmit={putMascota}>
             <input name='name' onChange={inputValue} value={pet.name}
             className='p-3 w-full bg-[#ffffffa5] outline-none placeholder:text-[#252f7c] rounded-[30px]' type="text" />
+            <div className='p-2 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]'>
             <select name='race_id' onChange={inputValue} value={pet.race_id}
-            className='p-3 w-full bg-[#ffffffa5] outline-none   rounded-[30px]'>
+            className='w-full bg-transparent p-1 outline-none'>
               {
                 razas.map(raza => (
                   <option key={raza.id} value={raza.id}>
@@ -168,8 +170,10 @@ function page() {
                 ))
               }
             </select>
+            </div>
+            <div className='p-2 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]'>
             <select name='category_id' onChange={inputValue} value={pet.category_id}
-             className='p-3 w-full bg-[#ffffffa5] outline-none  rounded-[30px]'>
+             className='w-full bg-transparent p-1 outline-none'>
               {
                 category.map(category => (
                   <option key={category.id} value={category.id}>
@@ -178,13 +182,28 @@ function page() {
                 ))
               }
             </select>
-            <input name='photo' 
-            onChange={(e) => {
-              setFile(e.target.files[0]);
-            }}
-            className='p-3 w-full bg-[#ffffffa5] outline-none placeholder:text-[#252f7c] rounded-[30px]' type="file" placeholder='Subir Foto' />
+            </div>
+            <div className="p-3 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]">
+              <input
+                name="photo"
+                onChange={(e) => {
+                  setFile(e.target.files[0]);
+                }}
+                className="absolute opacity-0 w-full"
+                type="file"
+                accept="image/*"
+              />
+              <span className="outline-none cursor-pointer">
+                Subir Foto
+              </span>
+              <Image
+                  src={iconCamera}
+                  alt='camera'
+                />
+            </div>
+            <div className='p-2 w-full bg-[#ffffffa5] outline-none flex justify-between rounded-[30px]'>
             <select name='gender_id' onChange={inputValue} value={pet.gender_id}
-             className='p-3 w-full bg-[#ffffffa5] outline-none  rounded-[30px]'>
+             className='w-full bg-transparent p-1 outline-none'>
               {
                 genders.map(gender => (
                   <option key={gender.id} value={gender.id}>
@@ -193,6 +212,7 @@ function page() {
                 ))
               }
             </select>
+            </div>
             <button type='submit'>
             <Image  src={btnUpdate} 
         alt='btn close'/>
